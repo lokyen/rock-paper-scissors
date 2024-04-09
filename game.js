@@ -7,30 +7,30 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     if(playerSelection == computerSelection){ //tied
-        score(1, 1);
+        calculateScore(1, 1);
         return `Tied! Both players chose ${computerSelection}`;
     }else if(playerSelection == 'rock'){ // rock
         if(computerSelection == 'scissors'){
-            score(1, 0);
+            calculateScore(1, 0);
             return `You win! ${playerSelection} beats ${computerSelection}`;
         }else{
-            score(0, 1);
+            calculateScore(0, 1);
             return `You lose! ${computerSelection} beats ${playerSelection}`;
         }
     }else if(playerSelection == 'paper'){ // paper
         if(computerSelection == 'rock'){
-            score(1, 0);
+            calculateScore(1, 0);
             return `You win! ${playerSelection} beats ${computerSelection}`;
         }else{
-            score(0, 1);
+            calculateScore(0, 1);
             return `You lose! ${computerSelection} beats ${playerSelection}`;
         }
     }else{
         if(computerSelection == 'rock'){ // scissors
-            score(1, 0);
+            calculateScore(1, 0);
             return `You win! ${playerSelection} beats ${computerSelection}`;
         }else{
-            score(0, 1);
+            calculateScore(0, 1);
             return `You lose! ${computerSelection} beats ${playerSelection}`;
         }
     }
@@ -47,12 +47,12 @@ function playGame(){
     }
 }
 
-function score(myPoint, computerPoint){
+function calculateScore(myPoint, computerPoint){
     myScore += myPoint;
     computerScore += computerPoint;
 }
 
-function winner(myScore, computerScore){
+function calculateWinner(myScore, computerScore){
     if(myScore == computerScore){
         return `It's a tie`
     }
@@ -69,7 +69,7 @@ let computerScore = 0;
 playGame();
 console.log(`My Score is ${myScore}`);
 console.log(`The Computer's Score is ${computerScore}`);
-console.log(winner());
+console.log(calculateWinner());
 
 
 
